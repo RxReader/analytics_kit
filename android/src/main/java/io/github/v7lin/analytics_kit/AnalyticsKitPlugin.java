@@ -55,6 +55,10 @@ public class AnalyticsKitPlugin implements FlutterPlugin, MethodCallHandler {
             StatService.enableDeviceMac(applicationContext, true);
             StatService.setAuthorizedState(applicationContext, true);
             result.success(null);
+        } else if ("setOaid".equals(call.method)) {
+            String oaid = call.argument("oaid");
+            StatService.setOaid(applicationContext, oaid);
+            result.success(null);
         } else if ("getTestDeviceId".equals(call.method)) {
             result.success(StatService.getTestDeviceId(applicationContext));
         } else if ("startPageTracking".equals(call.method)) {

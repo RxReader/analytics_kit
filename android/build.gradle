@@ -16,11 +16,6 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
-
-        // 私仓
-        flatDir {
-            dirs project(':analytics_kit').file('libs')
-        }
     }
 }
 
@@ -63,6 +58,5 @@ android {
 
 dependencies {
     //
-    vendorImplementation(name: 'msa_mdid_1.0.13', ext: 'aar')
     vendorImplementation 'com.baidu.mobstat:mtj-sdk:4.0.4.6'
 }

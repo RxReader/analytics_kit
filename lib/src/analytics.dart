@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -20,6 +21,15 @@ class Analytics {
       'app_key': appKey,
       if (channelId?.isNotEmpty ?? false) 'channel_id': channelId,
       'debug_enabled': debugEnabled,
+    });
+  }
+
+  ///
+  static Future<void> setOaid({@required String oaid}) {
+    assert(Platform.isAndroid);
+    assert(oaid?.isNotEmpty ?? false);
+    return _channel.invokeMethod('setOaid', <String, dynamic>{
+      'oaid': oaid,
     });
   }
 
