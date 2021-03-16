@@ -1,0 +1,32 @@
+PODS:
+  - analytics_kit (0.0.1):
+    - analytics_kit/vendor (= 0.0.1)
+    - Flutter
+  - analytics_kit/vendor (0.0.1):
+    - BaiduMobStatCodeless (~> 5.3.1)
+    - Flutter
+  - BaiduMobStatCodeless (5.3.1)
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - analytics_kit (from `.symlinks/plugins/analytics_kit/ios`)
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - BaiduMobStatCodeless
+
+EXTERNAL SOURCES:
+  analytics_kit:
+    :path: ".symlinks/plugins/analytics_kit/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  analytics_kit: 292078e2a1f8b2cd4574107df029837719d6515d
+  BaiduMobStatCodeless: 2d05ac8a31e1fb2bbe5ea66880cacfddaa6bf565
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.10.0
