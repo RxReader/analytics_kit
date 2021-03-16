@@ -3,7 +3,7 @@
 @implementation AnalyticsKitPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"analytics_kit"
+      methodChannelWithName:@"v7lin.github.io/analytics_kit"
             binaryMessenger:[registrar messenger]];
   AnalyticsKitPlugin* instance = [[AnalyticsKitPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];

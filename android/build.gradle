@@ -16,6 +16,11 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+
+        // 私仓
+        flatDir {
+            dirs project(':analytics_kit').file('libs')
+        }
     }
 }
 
@@ -26,8 +31,38 @@ android {
 
     defaultConfig {
         minSdkVersion 16
+
+        // library 混淆 -> 随 library 引用，自动添加到 apk 打包混淆
+        consumerProguardFiles 'consumer-rules.pro'
     }
+
     lintOptions {
         disable 'InvalidPackage'
     }
+
+    flavorDimensions 'vendor'
+
+    productFlavors {
+        vendor {
+            dimension 'vendor'
+
+            // library 混淆 -> 随 library 引用，自动添加到 apk 打包混淆
+            consumerProguardFiles 'consumer-vendor-rules.pro'
+        }
+    }
+
+    libraryVariants.all { variant ->
+        variant.mergeAssetsProvider.get().doLast{ task ->
+            println("try to delete 'supplierconfig.json' from library")
+            delete(fileTree(task.outputDir) { config ->
+                config.include("supplierconfig.json")
+            })
+        }
+    }
+}
+
+dependencies {
+    //
+    vendorImplementation(name: 'msa_mdid_1.0.13', ext: 'aar')
+    vendorImplementation 'com.baidu.mobstat:mtj-sdk:4.0.4.6'
 }

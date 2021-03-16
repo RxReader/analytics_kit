@@ -1,8 +1,8 @@
 name: analytics_kit
 description: Flutter plugin for Analytics.
-version: 0.0.1
-author:
-homepage:
+version: 0.0.1-baidu
+# author: v7lin <v7lin@qq.com>
+homepage: https://github.com/rxreader/analytics_kit
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
