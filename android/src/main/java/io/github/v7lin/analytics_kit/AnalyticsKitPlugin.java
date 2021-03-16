@@ -37,6 +37,7 @@ public class AnalyticsKitPlugin implements FlutterPlugin, MethodCallHandler {
     @Override
     public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
         channel.setMethodCallHandler(null);
+        channel = null;
         applicationContext = null;
     }
 
