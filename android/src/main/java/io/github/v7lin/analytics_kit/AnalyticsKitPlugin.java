@@ -53,11 +53,16 @@ public class AnalyticsKitPlugin implements FlutterPlugin, MethodCallHandler {
             StatService.setAppChannel(applicationContext, channelId, false);
             StatService.setOn(applicationContext, StatService.JAVA_EXCEPTION_LOG);
             StatService.enableDeviceMac(applicationContext, true);
-            StatService.setAuthorizedState(applicationContext, true);
+            StatService.setAuthorizedState(applicationContext, false);
+            StatService.start(applicationContext);
             result.success(null);
         } else if ("setOaid".equals(call.method)) {
             String oaid = call.argument("oaid");
             StatService.setOaid(applicationContext, oaid);
+            result.success(null);
+        } else if ("setAuthorizedState".equals(call.method)) {
+            boolean enabled = call.argument("enabled");
+            StatService.setAuthorizedState(applicationContext, enabled);
             result.success(null);
         } else if ("getTestDeviceId".equals(call.method)) {
             result.success(StatService.getTestDeviceId(applicationContext));
@@ -71,9 +76,8 @@ public class AnalyticsKitPlugin implements FlutterPlugin, MethodCallHandler {
             result.success(null);
         } else if ("trackEvent".equals(call.method)) {
             String eventId = call.argument("event_id");
-            String eventLabel = call.argument("event_label");
             Map<String, String> eventParams = call.argument("event_params");
-            StatService.onEvent(applicationContext, eventId, eventLabel, 1, eventParams);
+            StatService.onEvent(applicationContext, eventId, null, 1, eventParams);
             result.success(null);
         } else {
             result.notImplemented();

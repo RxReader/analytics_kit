@@ -13,13 +13,14 @@ class Analytics {
   ///
   static Future<void> init({
     @required String appKey,
-    String channelId,
+    @required String channelId,
     bool debugEnabled = false,
   }) {
     assert(appKey?.isNotEmpty ?? false);
+    assert(channelId?.isNotEmpty ?? false);
     return _channel.invokeMethod<void>('init', <String, dynamic>{
       'app_key': appKey,
-      if (channelId?.isNotEmpty ?? false) 'channel_id': channelId,
+      'channel_id': channelId,
       'debug_enabled': debugEnabled,
     });
   }
@@ -30,6 +31,24 @@ class Analytics {
     assert(oaid?.isNotEmpty ?? false);
     return _channel.invokeMethod('setOaid', <String, dynamic>{
       'oaid': oaid,
+    });
+  }
+
+  ///
+  static Future<void> setAdid({@required String adid}) {
+    assert(Platform.isIOS);
+    assert(adid?.isNotEmpty ?? false);
+    return _channel.invokeMethod('setAdid', <String, dynamic>{
+      'adid': adid,
+    });
+  }
+
+  ///
+  static Future<void> setAuthorizedState({@required bool enabled}) {
+    assert(Platform.isAndroid);
+    assert(enabled != null);
+    return _channel.invokeMethod('setAuthorizedState', <String, dynamic>{
+      'enabled': enabled,
     });
   }
 
@@ -57,13 +76,11 @@ class Analytics {
   ///
   static Future<void> trackEvent({
     @required String eventId,
-    String eventLabel,
     Map<String, String > eventParams,
   }) {
     assert(eventId?.isNotEmpty ?? false);
     return _channel.invokeMethod<void>('trackEvent', <String, dynamic>{
       'event_id': eventId,
-      if (eventLabel?.isNotEmpty ?? false) 'event_label': eventLabel,
       if (eventParams?.isNotEmpty ?? false) 'event_params': eventParams,
     });
   }
