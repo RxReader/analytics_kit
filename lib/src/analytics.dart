@@ -8,7 +8,8 @@ import 'package:flutter/services.dart';
 class Analytics {
   const Analytics._();
 
-  static const MethodChannel _channel = MethodChannel('v7lin.github.io/analytics_kit');
+  static const MethodChannel _channel =
+      MethodChannel('v7lin.github.io/analytics_kit');
 
   ///
   static Future<void> init({
@@ -76,7 +77,7 @@ class Analytics {
   ///
   static Future<void> trackEvent({
     @required String eventId,
-    Map<String, String > eventParams,
+    Map<String, String> eventParams,
   }) {
     assert(eventId?.isNotEmpty ?? false);
     return _channel.invokeMethod<void>('trackEvent', <String, dynamic>{
