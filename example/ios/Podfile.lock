@@ -1,8 +1,8 @@
 PODS:
-  - analytics_kit (0.0.1):
-    - analytics_kit/vendor (= 0.0.1)
+  - analytics_kit (0.1.0):
+    - analytics_kit/vendor (= 0.1.0)
     - Flutter
-  - analytics_kit/vendor (0.0.1):
+  - analytics_kit/vendor (0.1.0):
     - BaiduMobStatCodeless (~> 5.3.1)
     - Flutter
   - BaiduMobStatCodeless (5.3.1)
@@ -23,9 +23,9 @@ EXTERNAL SOURCES:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  analytics_kit: 292078e2a1f8b2cd4574107df029837719d6515d
+  analytics_kit: 741d1bfa240793784ab27256cdae2d0398fa8a4d
   BaiduMobStatCodeless: 2d05ac8a31e1fb2bbe5ea66880cacfddaa6bf565
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
 
 PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
 
