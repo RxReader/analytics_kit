@@ -7,7 +7,8 @@ import 'package:flutter/services.dart';
 class Analytics {
   const Analytics._();
 
-  static const MethodChannel _channel = MethodChannel('v7lin.github.io/analytics_kit');
+  static const MethodChannel _channel =
+      MethodChannel('v7lin.github.io/analytics_kit');
 
   ///
   static Future<void> init({
